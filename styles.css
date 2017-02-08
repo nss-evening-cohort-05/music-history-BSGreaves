@@ -2,4 +2,65 @@ body {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	margin: 0;
 	padding: 0;
+	letter-spacing: 0.9px;
+	font-size: 18px;
+}
+
+.allcontentcontainer {
+	width: 90%;
+	margin:20px auto;
+	border: 1px solid black;
+}
+
+.mainnav {
+	background-color: darkgrey;
+	width: 100%;
+}
+
+.mainnavul {
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0;
+	height: 50px;
+}
+
+.mainnavul li a {
+	margin: auto 20px;
+	text-decoration: none;
+	color: white;
+	font-size: 1.2em;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+}
+
+.maincontainer {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+
+.musicsidenav {
+	border: 1px solid black;
+	width: 25%;
+	height: 300px;
+	margin-right: 10px;
+}
+
+.songdisplaydiv {
+	border: 1px solid black;
+	width: calc(75% - 15px);
+	height: 300px;
+}
+
+/* LEFT NAV BAR STYLES */
+
+.checkboxcontainer {
+	display: flex;
+	flex-flow: row;
 }
