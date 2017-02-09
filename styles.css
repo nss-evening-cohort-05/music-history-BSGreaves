@@ -128,3 +128,16 @@ p.songproperties {
 .songdiv:last-child {
 	margin-bottom: 0;
 }
+
+/* TEMP FOR PART2 */
+
+.outputdiv {
+	border: 1px solid black;
+	padding: 20px;
+	margin: 20px;
+	color: black;
+}
+
+.part2header {
+	color: black;
+}
