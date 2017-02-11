@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Music History</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div class="allcontentcontainer">
+			<nav class="mainnav">
+				<ul class="mainnavul">
+					<li><a href="#">View Music</a></li>
+					<li><a href="#">Add Music</a></li>
+					<li><a href="#">Profile</a></li>
+				</ul>
+			</nav>
+			<main class="maincontainer">
+				<nav class="musicsidenav">
+					<form class="musicsideform">
+						<label for="songlength">Song Length</label>
+						<input type="range" min="1" max="100" value="51" id="songlength">
+						<br>
+						<label for="artist">Artist</label>
+						<select name ="artist">
+							<option value="Deadmau5">Deadmau5</option>
+							<option value="Childish_Gambino">Childish Gambino</option>
+							<option value="The_Police">The Police</option>
+							<option value="Rachmaninov">Rachmaninov</option>
+							<option value="A_Perfect_Circle">A Perfect Circle</option>
+						</select>
+						<br>
+						<label for="album">Album</label>
+						<select name ="album">
+							<option value="4x4=12">4x4=12</option>
+							<option value="Because_the_Internet">Because the Internet</option>
+							<option value="Synchronicity">Synchronicity</option>
+							<option value="Piano_Concerto_#2">Piano Concerto #2</option>
+							<option value="Thirteenth_Step">Thirteenth Step</option>
+						</select>
+						<br>
+						<label for="genre">Genre</label>
+						<div class="checkboxcontainer">
+							<div class="checkboxcolumn">
+								<input type="checkbox" id="cbox1" value="first_checkbox">Classical<br>
+								<input type="checkbox" id="cbox1" value="first_checkbox">Hip-Hop<br>
+								<input type="checkbox" id="cbox1" value="first_checkbox">Rock
+							</div>
+							<div class="checkboxcolumn">
+								<input type="checkbox" id="cbox1" value="first_checkbox">Electronic<br>
+								<input type="checkbox" id="cbox1" value="first_checkbox">Metal<br>
+								<input type="checkbox" id="cbox1" value="first_checkbox">Pop
+							</div>
+						</div>
+						<div class="submitbuttondiv">
+							<input type="submit" class="submitbutton">
+						</div>
+					</form>
+				</nav>
+				<div class="songdisplaydiv">
+					<article class="songdiv">
+						<header class="songnameheader">
+						King of Pain</header>
+						<p class="songartistname songproperties">The Police -</p>
+						<p class="songalbumname songproperties">Synchronocity -</p>
+						<p class="songgenre songproperties">Rock</p>
+					</article>
+					<article class="songdiv">
+						<header class="songnameheader">
+						Sofi Needs a Ladder</header>
+						<p class="songartistname songproperties">Deadmau5 -</p>
+						<p class="songalbumname songproperties">4x4=12 -</p>
+						<p class="songgenre songproperties">Electronic</p>
+					</article>
+					<article class="songdiv">
+						<header class="songnameheader">
+						3005</header>
+						<p class="songartistname songproperties">Childish Gambino -</p>
+						<p class="songalbumname songproperties">Because the Internet -</p>
+						<p class="songgenre songproperties">Hip-Hop</p>
+					</article>
+					<article class="songdiv">
+						<header class="songnameheader">
+						The Package</header>
+						<p class="songartistname songproperties">A Perfect Circle -</p>
+						<p class="songalbumname songproperties">Thirteenth Step -</p>
+						<p class="songgenre songproperties">Rock</p>
+					</article>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
