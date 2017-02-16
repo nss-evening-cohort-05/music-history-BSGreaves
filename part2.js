@@ -10,6 +10,7 @@
 // Must add each string to the DOM in index.html in the main content area.
 
 var songs = [];
+var outputDiv = document.getElementById("songdisplaydiv");
 
 songs[songs.length] = "Sofi Needs a Ladder - by Deadmau5 on the album 4x4=12";
 songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
@@ -19,24 +20,19 @@ songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album App
 songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
 songs[songs.length] = "The Package - by A Pefect Circle on the album Thirteenth Step";
 
-//* @ (
-
 function cleanup(array, a, b, c, d, e) {
 	for (let i = 0; i < array.length; i++) {
-		array[i] = array[i].replace(a, "");
-		array[i] = array[i].replace(b, "");
-		array[i] = array[i].replace(c, "");
-		array[i] = array[i].replace(d, "");
-		array[i] = array[i].replace(e, "-");
+		array[i] = array[i].replace(a, "").replace(b, "").replace(c, "").replace(d, "").replace(e, "-");
 		console.log(array[i]);
+	}
+	printToArray(array);
+}
+
+function printToArray (array) {
+	for (var i = 0; i < array.length; i++) {
+		outputDiv.innerHTML += "<article class='songdiv'><p class='songartistname songproperties'>" + array[i] + "</article></p>";
 	}
 }
 
 cleanup(songs, "*", "@", "(", "!", ">");
 
-// function removechars (string, a, b, c, ) {
-// 	string = string.replace(a, "");
-// 	string = string.replace(a, "");
-// 	string = string.replace(c, "");
-// 	return string;
-// }

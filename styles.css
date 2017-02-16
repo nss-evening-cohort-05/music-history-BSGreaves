@@ -63,7 +63,7 @@ body {
 
 }
 
-.songdisplaydiv {
+#songdisplaydiv {
 	width: calc(80% - 15px);
 	height: 350px;
 }
