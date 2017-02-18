@@ -20,19 +20,18 @@ songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album App
 songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
 songs[songs.length] = "The Package - by A Pefect Circle on the album Thirteenth Step";
 
-function cleanup(array, a, b, c, d, e) {
+function cleanUp (array) {
 	for (let i = 0; i < array.length; i++) {
-		array[i] = array[i].replace(a, "").replace(b, "").replace(c, "").replace(d, "").replace(e, "-");
-		console.log(array[i]);
+		array[i] = array[i].replace("*", "").replace("@", "").replace("(", "").replace("!", "").replace(">", "-");
 	}
 	printToArray(array);
-}
+};
 
 function printToArray (array) {
-	for (var i = 0; i < array.length; i++) {
+	for (let i = 0; i < array.length; i++) {
 		outputDiv.innerHTML += "<article class='songdiv'><p class='songartistname songproperties'>" + array[i] + "</article></p>";
 	}
-}
+};
 
-cleanup(songs, "*", "@", "(", "!", ">");
+cleanUp(songs);
 
