@@ -8,12 +8,12 @@
 		<div class="allcontentcontainer">
 			<nav class="mainnav">
 				<ul class="mainnavul">
-					<li><a href="#">View Music</a></li>
-					<li><a href="#">Add Music</a></li>
-					<li><a href="#">Profile</a></li>
+					<li><a id="view-link" href="#">View Music</a></li>
+					<li><a id="add-link" href="#">Add Music</a></li>
+					<li><a id="profile-link" href="#">Profile</a></li>
 				</ul>
 			</nav>
-			<main class="maincontainer">
+			<section id="view-section" class="maincontainer visible">
 				<nav class="musicsidenav">
 					<form class="musicsideform">
 						<label for="songlength">Song Length</label>
@@ -56,37 +56,20 @@
 					</form>
 				</nav>
 				<div id="songdisplaydiv">
-					<!-- <article class="songdiv">
-						<header class="songnameheader">
-						King of Pain</header>
-						<p class="songartistname songproperties">The Police -</p>
-						<p class="songalbumname songproperties">Synchronocity -</p>
-						<p class="songgenre songproperties">Rock</p>
-					</article>
-					<article class="songdiv">
-						<header class="songnameheader">
-						Sofi Needs a Ladder</header>
-						<p class="songartistname songproperties">Deadmau5 -</p>
-						<p class="songalbumname songproperties">4x4=12 -</p>
-						<p class="songgenre songproperties">Electronic</p>
-					</article>
-					<article class="songdiv">
-						<header class="songnameheader">
-						3005</header>
-						<p class="songartistname songproperties">Childish Gambino -</p>
-						<p class="songalbumname songproperties">Because the Internet -</p>
-						<p class="songgenre songproperties">Hip-Hop</p>
-					</article>
-					<article class="songdiv">
-						<header class="songnameheader">
-						The Package</header>
-						<p class="songartistname songproperties">A Perfect Circle -</p>
-						<p class="songalbumname songproperties">Thirteenth Step -</p>
-						<p class="songgenre songproperties">Rock</p>
-					</article> -->
 				</div>
-			</main>
+			</section>
+			<section id="add-section" class="hidden">
+				<div class="addSectionContainer">
+					<input type="text" placeholder="Song"><br>
+					<input type="text" placeholder="Artist"><br>
+					<input type="text" placeholder="Album"><br>
+					<div class="submitbuttondiv">
+						<button name="addSong" id="addSongButton">Add Song</button>
+					</div>
+				</div>
+			</section>
 		</div>
-		<script src="part2.js"></script>
+		<script src="view.js"></script>
+		<script src="add.js"></script>
 	</body>
 </html>
