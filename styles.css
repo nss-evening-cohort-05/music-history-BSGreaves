@@ -159,15 +159,15 @@ p.songproperties {
 /* ADD SONG DISPLAY */
 
 input[type="text"] {
-  padding: 10px 10px 10px 20px;
-  border: none;
-  border-bottom: solid 2px #c9c9c9;
-  transition: border 0.3s;
-  background-color: #7c5377;
-  width: 350px;
-  border-radius: 5px;
-  font-size: 1em;
-  color: white;
+	padding: 10px 10px 10px 20px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+	background-color: #7c5377;
+	width: 350px;
+	border-radius: 5px;
+	font-size: 1em;
+	color: white;
 }
 input[type="text"]:focus,
 input[type="text"].focus {
@@ -193,15 +193,11 @@ input[type="text"].focus {
 /* VIEW CONTROL */
 
 .visible {
-  display: flex;
+	display: flex;
 }
 
 .hidden {
-  display: none;
-}
-
-#view-section {
-
+	display: none;
 }
 
 #add-section {
