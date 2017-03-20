@@ -16,7 +16,7 @@ body {
 
 /* DROP SHADOWS */
 
-.mainnav, .musicsidenav, .songdiv, .submitbutton {
+.mainnav, .musicsidenav, .songdiv, .submitbutton, .addSectionContainer, #addSongButton {
 	box-shadow: 0px 5px 9px -2px rgba(50, 50, 50, 0.75);
 }
 
@@ -103,8 +103,7 @@ body {
 
 	width: 65%;
 	padding:2px 5px; 
-    background:#7c5377; 
-    border:1px solid lightgrey;
+    background:#7c5377;
     border-radius: 5px;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     color:white;
@@ -157,3 +156,63 @@ p.songproperties {
 	margin-bottom: 0;
 }
 
+/* ADD SONG DISPLAY */
+
+input[type="text"] {
+  padding: 10px 10px 10px 20px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+  background-color: #7c5377;
+  width: 350px;
+  border-radius: 5px;
+  font-size: 1em;
+  color: white;
+}
+input[type="text"]:focus,
+input[type="text"].focus {
+  border-bottom: solid 2px lightgrey;
+}
+
+.addViewImg {
+	display: inline-block;
+}
+
+#addSongButton {
+	width: 65%;
+	padding:2px 5px;
+	margin: 10px auto;
+    background:#537c62; 
+    border-radius: 5px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    color:white;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* VIEW CONTROL */
+
+.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+#view-section {
+
+}
+
+#add-section {
+	width: 100%;
+}
+
+.addSectionContainer {
+	display: block;
+	margin: auto;
+	background-color: #7c5377;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	color: white;
+	border-radius: 5px;
+}
