@@ -38,7 +38,8 @@ addSongButton.addEventListener("click", addToSongList);
 
 function addToSongList() {
     if (addSongField.value !== "" && addArtistField.value !== "" && addAlbumField.value !== "") {
-        newSong = {}
+        let newSong = {};
+        newSong.id = getID();
         newSong.title = addSongField.value;
         newSong.artist = addArtistField.value;
         newSong.album = addAlbumField.value;
@@ -52,29 +53,64 @@ function addToSongList() {
 };
 
 function printToDOM(array) {
-    outputString = "";
-    for (let i = 0; i < array.length; i++) {
+    let outputString = "";
+    array.forEach(function(each){
         outputString += `<article class='songdiv'><p class='songartistname songproperties'>`
-        outputString += `${array[i].title} by ${array[i].artist} on the album ${array[i].album}`
+        outputString += `${each.title} by ${each.artist} on the album ${each.album}`
         outputString += `</article></p>`;
-    }
+    });
+    outputString += `<article class="morebuttondiv"><input type="button" value="More" class="morebutton"></article>`;
     outputDiv.innerHTML = outputString
+    moreButton = document.querySelector(".morebutton");
+    moreButton.addEventListener("click", function(){
+        loadJSON(getNextJSONFile());
+});
 };
 
 // On Page Load
 
 var songs = [];
 var outputDiv = document.getElementById("songdisplaydiv");
+var idCounter = 0;
 
 function parseJson() {
-    var data = JSON.parse(this.responseText);
+    let data = JSON.parse(this.responseText);
     data = data.songs;
-    data.forEach(each => songs.push(each))
+    data.forEach(each => each.id = getID());
+    data.forEach(each => songs.push(each));
     printToDOM(songs);
 }
 
-var songsJson = new XMLHttpRequest();
-songsJson.addEventListener("load", parseJson);
-songsJson.addEventListener("error", function(){console.log("JSON Error")});
-songsJson.open("GET", "songs.json");
-songsJson.send();
+function getID () {
+    var currID = idCounter;
+    idCounter++;
+    return currID;
+}
+
+function loadJSON(filepath) {
+    if (filepath === undefined) {console.log("No more files to load")} //Hope this OK to leave in here.
+    else {
+        let songsJson = new XMLHttpRequest();
+        songsJson.addEventListener("load", parseJson);
+        songsJson.addEventListener("error", function(){console.log("JSON Error")});
+        songsJson.open("GET", filepath);
+        songsJson.send();
+    }
+}
+
+function getNextJSONFile(){ // This function keeps track of all the JSON Files and makes sure it only loads files until it runs out of files.
+    if (JSONList.length > numberFilesLoaded) { //That way, the only thing hard-coded is the JSONList
+        currFile = numberFilesLoaded;
+        numberFilesLoaded++;
+        return JSONList[currFile];
+    } else {
+        return undefined;
+    }
+}
+
+const JSONList = ["songs.json", "songs2.json"];
+var numberFilesLoaded = 0;
+
+loadJSON(getNextJSONFile());
+
+

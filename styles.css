@@ -17,7 +17,7 @@ body {
 
 /* DROP SHADOWS */
 
-.mainnav, .musicsidenav, .songdiv, .submitbutton, .addSectionContainer, #addSongButton {
+.mainnav, .musicsidenav, .songdiv, .submitbutton, .addSectionContainer, #addSongButton, .morebutton {
 	box-shadow: 0px 5px 9px -2px rgba(50, 50, 50, 0.75);
 }
 
@@ -100,8 +100,7 @@ body {
 	width: calc(100% - 30px);
 }
 
-.submitbutton {
-
+.morebutton, .submitbutton {
 	width: 65%;
 	padding:2px 5px; 
     background:#7c5377;
@@ -112,13 +111,18 @@ body {
     font-size: 1.1em;
 }
 
-.submitbuttondiv {
+.morebuttondiv, .submitbuttondiv {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 50px;
 	margin: auto;
 }
+
+.morebuttondiv {
+	width: 200px;
+}
+
 
 /* RIGHT DISPLAY BOX */
 
