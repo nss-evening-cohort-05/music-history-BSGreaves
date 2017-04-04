@@ -40,6 +40,7 @@ function addToSongList() {
     if (addSongField.value !== "" && addArtistField.value !== "" && addAlbumField.value !== "") {
         let newSong = {};
         newSong.id = getID();
+        console.log("new song ID", newSong.id)
         newSong.title = addSongField.value;
         newSong.artist = addArtistField.value;
         newSong.album = addAlbumField.value;
@@ -55,16 +56,31 @@ function addToSongList() {
 function printToDOM(array) {
     let outputString = "";
     array.forEach(function(each){
-        outputString += `<article class='songdiv'><p class='songartistname songproperties'>`
+        outputString += `<article class='songdiv'><div><p class='songartistname songproperties'>`
         outputString += `${each.title} by ${each.artist} on the album ${each.album}`
-        outputString += `</article></p>`;
+        outputString += `</p></div><div class="delbuttondiv"><input type="button" value="Delete" class="delbutton" id="${each.id}"></div></article>`;
     });
     outputString += `<article class="morebuttondiv"><input type="button" value="More" class="morebutton"></article>`;
-    outputDiv.innerHTML = outputString
+    outputDiv.innerHTML = outputString;
+    delButtons = document.querySelectorAll(".delbutton");
+    delButtons.forEach(function(each){
+        each.addEventListener("click", function(e){
+            deleteSong(e.target.id);
+        });
+    });
     moreButton = document.querySelector(".morebutton");
     moreButton.addEventListener("click", function(){
         loadJSON(getNextJSONFile());
-});
+    });
+};
+
+function deleteSong(id){
+    songs.forEach(function(each){
+        if (parseInt(each.id) === parseInt(id)) {
+            songs.splice(each, 1);
+        }
+    });
+    printToDOM(songs);
 };
 
 // On Page Load

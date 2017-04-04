@@ -61,7 +61,6 @@ body {
 	margin-right: 10px;
 	background-color: #537c62;
 	border-radius: 5px;
-
 }
 
 #songdisplaydiv {
@@ -119,10 +118,24 @@ body {
 	margin: auto;
 }
 
+.delbutton {
+	width: 65%;
+	padding:2px 5px; 
+	background-color: #537c62;
+    border-radius: 5px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    color:white;
+    text-align: center;
+    font-size: .8em;
+}
+
 .morebuttondiv {
 	width: 200px;
 }
 
+.delbuttondiv {
+	width: 110px;
+}
 
 /* RIGHT DISPLAY BOX */
 
@@ -140,6 +153,9 @@ body {
 	box-sizing: border-box;
 	background-color:#7c5377;
 	color: white;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
 }
 
 .songnameheader {
@@ -217,3 +233,4 @@ input[type="text"].focus {
 	color: white;
 	border-radius: 5px;
 }
+
