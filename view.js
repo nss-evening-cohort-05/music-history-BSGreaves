@@ -75,9 +75,9 @@ function printToDOM(array) {
 };
 
 function deleteSong(id){
-    songs.forEach(function(each){
+    songs.forEach(function(each, index){
         if (parseInt(each.id) === parseInt(id)) {
-            songs.splice(each, 1);
+            songs.splice(index, 1);
         }
     });
     printToDOM(songs);
