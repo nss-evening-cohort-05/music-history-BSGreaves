@@ -1,55 +1,56 @@
 var songs = [];
-var outputDiv = document.getElementById("songdisplaydiv");
+var $outputDiv = $("#songdisplaydiv");
 
 // "View" Section
 
-var viewLink = document.getElementById("view-link");
-var viewSection = document.getElementById("view-section");
+var $viewLink = $("#view-link");
+var $viewSection = $("#view-section");
 
-viewLink.addEventListener("click", displayView);
+$viewLink.click(function(){
+    displayView();
+});
 
 function displayView() {
-    viewSection.classList.add("visible");
-    viewSection.classList.remove("hidden");
-    addSection.classList.add("hidden");
-    addSection.classList.remove("visible");
+    $viewSection.addClass("visible").removeClass("hidden");
+    $addSection.addClass("hidden").removeClass("visible");
 };
 
 // "Add" Section
 
-var addLink = document.getElementById("add-link");
-var addSection = document.getElementById("add-section");
+var $addLink = $("#add-link");
+var $addSection = $("#add-section");
 
-addLink.addEventListener("click", displayAdd);
+$addLink.click(function(){
+    displayAdd();
+});
 
 function displayAdd() {
-    viewSection.classList.add("hidden");
-    viewSection.classList.remove("visible");
-    addSection.classList.add("visible");
-    addSection.classList.remove("hidden");
+    $addSection.addClass("visible").removeClass("hidden");
+    $viewSection.addClass("hidden").removeClass("visible");
 };
 
-var addSongField = document.getElementById("addSongField");
-var addArtistField = document.getElementById("addArtistField");
-var addAlbumField = document.getElementById("addAlbumField");
-var addSongButton = document.getElementById("addSongButton");
+var $addSongField = $("#addSongField");
+var $addArtistField = $("#addArtistField");
+var $addAlbumField = $("#addAlbumField");
+var $addSongButton = $("#addSongButton");
 
-addSongButton.addEventListener("click", addToSongList);
+$addSongButton.click(function(){
+    addToSongList();
+});
 
 function addToSongList() {
-    if (addSongField.value !== "" && addArtistField.value !== "" && addAlbumField.value !== "") {
+    if ($addSongField.val() !== "" && $addArtistField.val !== "" && $addAlbumField.val !== "") {
         let newSong = {};
         newSong.id = getID();
-        console.log("new song ID", newSong.id)
-        newSong.title = addSongField.value;
-        newSong.artist = addArtistField.value;
-        newSong.album = addAlbumField.value;
+        newSong.title = $addSongField.val();
+        newSong.artist = $addArtistField.val();
+        newSong.album = $addAlbumField.val();
         songs.push(newSong);
         printToDOM(songs);
         displayView();
-        addSongField.value = "";
-        addArtistField.value = "";
-        addAlbumField.value = "";
+        $addSongField.val("");
+        $addArtistField.val("");
+        $addAlbumField.val("");
     }
 };
 
@@ -61,15 +62,12 @@ function printToDOM(array) {
         outputString += `</p></div><div class="delbuttondiv"><input type="button" value="Delete" class="delbutton" id="${each.id}"></div></article>`;
     });
     outputString += `<article class="morebuttondiv"><input type="button" value="More" class="morebutton"></article>`;
-    outputDiv.innerHTML = outputString;
-    delButtons = document.querySelectorAll(".delbutton");
-    delButtons.forEach(function(each){
-        each.addEventListener("click", function(e){
-            deleteSong(e.target.id);
-        });
+    $outputDiv.html(outputString);
+    $(".delbutton").click(function(){
+        let id = $(this).attr("id");
+        deleteSong(id);
     });
-    moreButton = document.querySelector(".morebutton");
-    moreButton.addEventListener("click", function(){
+    $(".morebutton").click(function(){
         loadJSON(getNextJSONFile());
     });
 };
@@ -86,33 +84,32 @@ function deleteSong(id){
 // On Page Load
 
 var songs = [];
-var outputDiv = document.getElementById("songdisplaydiv");
 var idCounter = 0;
 
-function parseJson() {
-    let data = JSON.parse(this.responseText);
-    data = data.songs;
+function popArray(data) {
     data.forEach(each => each.id = getID());
     data.forEach(each => songs.push(each));
     printToDOM(songs);
-}
+};
 
 function getID () {
     var currID = idCounter;
     idCounter++;
     return currID;
-}
+};
 
 function loadJSON(filepath) {
-    if (filepath === undefined) {console.log("No more files to load")} //Hope this OK to leave in here.
-    else {
-        let songsJson = new XMLHttpRequest();
-        songsJson.addEventListener("load", parseJson);
-        songsJson.addEventListener("error", function(){console.log("JSON Error")});
-        songsJson.open("GET", filepath);
-        songsJson.send();
+    if (filepath !== undefined) {
+        $.ajax({
+            url: filepath
+        }).done(function (data) {
+            data = data.songs;
+            popArray(data)
+        }).fail(function (error) {
+            console.log("JSON Error", error)
+        });
     }
-}
+};
 
 function getNextJSONFile(){ // This function keeps track of all the JSON Files and makes sure it only loads files until it runs out of files.
     if (JSONList.length > numberFilesLoaded) { //That way, the only thing hard-coded is the JSONList
@@ -122,11 +119,9 @@ function getNextJSONFile(){ // This function keeps track of all the JSON Files a
     } else {
         return undefined;
     }
-}
+};
 
 const JSONList = ["songs.json", "songs2.json"];
 var numberFilesLoaded = 0;
 
 loadJSON(getNextJSONFile());
-
-
