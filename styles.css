@@ -7,6 +7,7 @@ body {
 	letter-spacing: 0.9px;
 	font-size: 18px;
 	color: white;
+	background-color: #F3EFF2;
 }
 
 .allcontentcontainer {
@@ -16,7 +17,7 @@ body {
 
 /* DROP SHADOWS */
 
-.mainnav, .musicsidenav, .songdiv, .submitbutton, .addSectionContainer, #addSongButton {
+.mainnav, .musicsidenav, .songdiv, .submitbutton, .addSectionContainer, #addSongButton, .morebutton {
 	box-shadow: 0px 5px 9px -2px rgba(50, 50, 50, 0.75);
 }
 
@@ -60,7 +61,6 @@ body {
 	margin-right: 10px;
 	background-color: #537c62;
 	border-radius: 5px;
-
 }
 
 #songdisplaydiv {
@@ -99,8 +99,7 @@ body {
 	width: calc(100% - 30px);
 }
 
-.submitbutton {
-
+.morebutton, .submitbutton {
 	width: 65%;
 	padding:2px 5px; 
     background:#7c5377;
@@ -111,12 +110,31 @@ body {
     font-size: 1.1em;
 }
 
-.submitbuttondiv {
+.morebuttondiv, .submitbuttondiv {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 50px;
 	margin: auto;
+}
+
+.delbutton {
+	width: 65%;
+	padding:2px 5px; 
+	background-color: #537c62;
+    border-radius: 5px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    color:white;
+    text-align: center;
+    font-size: .8em;
+}
+
+.morebuttondiv {
+	width: 200px;
+}
+
+.delbuttondiv {
+	width: 110px;
 }
 
 /* RIGHT DISPLAY BOX */
@@ -135,6 +153,9 @@ body {
 	box-sizing: border-box;
 	background-color:#7c5377;
 	color: white;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
 }
 
 .songnameheader {
@@ -159,15 +180,15 @@ p.songproperties {
 /* ADD SONG DISPLAY */
 
 input[type="text"] {
-  padding: 10px 10px 10px 20px;
-  border: none;
-  border-bottom: solid 2px #c9c9c9;
-  transition: border 0.3s;
-  background-color: #7c5377;
-  width: 350px;
-  border-radius: 5px;
-  font-size: 1em;
-  color: white;
+	padding: 10px 10px 10px 20px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+	background-color: #7c5377;
+	width: 350px;
+	border-radius: 5px;
+	font-size: 1em;
+	color: white;
 }
 input[type="text"]:focus,
 input[type="text"].focus {
@@ -193,15 +214,11 @@ input[type="text"].focus {
 /* VIEW CONTROL */
 
 .visible {
-  display: flex;
+	display: flex;
 }
 
 .hidden {
-  display: none;
-}
-
-#view-section {
-
+	display: none;
 }
 
 #add-section {
@@ -216,3 +233,4 @@ input[type="text"].focus {
 	color: white;
 	border-radius: 5px;
 }
+
