@@ -2,83 +2,109 @@
 <html lang="en">
 	<head>
 		<title>Music History</title>
-		<link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/js/bootstrap.js">
+		<link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./styles/main.css">
 	</head>
-	<body>
-<!-- 		<div class="allcontentcontainer">
-			<nav class="mainnav">
-				<ul class="mainnavul">
-					<li><a id="view-link" href="#">View Music</a></li>
-					<li><a id="add-link" href="#">Add Music</a></li>
-					<li><a id="profile-link" href="#">Profile</a></li>
-				</ul>
-			</nav>
-			<section id="view-section" class="maincontainer visible">
-				<nav class="musicsidenav">
-					<nav class="musicsideform">
-						<label for="songlength">Song Length</label>
-						<input type="range" min="1" max="100" value="51" id="songlength">
-						<br>
-						<label for="artist">Artist</label>
-						<select name ="artist">
-							<option value="Deadmau5">Deadmau5</option>
-							<option value="Childish_Gambino">Childish Gambino</option>
-							<option value="The_Police">The Police</option>
-							<option value="Rachmaninov">Rachmaninov</option>
-							<option value="A_Perfect_Circle">A Perfect Circle</option>
-						</select>
-						<br>
-						<label for="album">Album</label>
-						<select name ="album">
-							<option value="4x4=12">4x4=12</option>
-							<option value="Because_the_Internet">Because the Internet</option>
-							<option value="Synchronicity">Synchronicity</option>
-							<option value="Piano_Concerto_#2">Piano Concerto #2</option>
-							<option value="Thirteenth_Step">Thirteenth Step</option>
-						</select>
-						<br>
-						<label for="genre">Genre</label>
-						<div class="checkboxcontainer">
-							<div class="checkboxcolumn">
-								<input type="checkbox" id="cbox1" value="first_checkbox">Classical<br>
-								<input type="checkbox" id="cbox1" value="first_checkbox">Hip-Hop<br>
-								<input type="checkbox" id="cbox1" value="first_checkbox">Rock
-							</div>
-							<div class="checkboxcolumn">
-								<input type="checkbox" id="cbox1" value="first_checkbox">Electronic<br>
-								<input type="checkbox" id="cbox1" value="first_checkbox">Metal<br>
-								<input type="checkbox" id="cbox1" value="first_checkbox">Pop
-							</div>
-						</div>
-						<div class="submitbuttondiv">
-							<input type="submit" class="submitbutton">
-						</div>
-					</nav>
-				</nav>
-				<div id="songdisplaydiv">
-				</div>
-			</section>
-			<section id="add-section" class="hidden">
-				<div class="addSectionContainer">
-					<input type="text" placeholder="Song" id="addSongField"><br>
-					<input type="text" placeholder="Artist" id="addArtistField"><br>
-					<input type="text" placeholder="Album" id="addAlbumField"><br>
-					<div class="submitbuttondiv">
-						<button name="addSong" id="addSongButton">Add Song</button>
+	<body ng-app="musicApp">
+			<nav class="main-nav navbar navbar-inverse">
+					<div class="container">
+
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">BeatTrack</a>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a ng-href="#!/songs/list">My Music</a></li>
+							<li><a ng-href="#!/songs/new">New Song</a></li>
+						</ul>
 					</div>
 				</div>
-			</section>
+		</div>
+			</nav>
+		<div ng-view></div>
+		<!-- 		<div class="allcontentcontainer">
+				<nav class="mainnav">
+						<ul class="mainnavul">
+								<li><a id="view-link" href="#">View Music</a></li>
+								<li><a id="add-link" href="#">Add Music</a></li>
+								<li><a id="profile-link" href="#">Profile</a></li>
+						</ul>
+				</nav>
+				<section id="view-section" class="maincontainer visible">
+						<nav class="musicsidenav">
+								<nav class="musicsideform">
+										<label for="songlength">Song Length</label>
+										<input type="range" min="1" max="100" value="51" id="songlength">
+										<br>
+										<label for="artist">Artist</label>
+										<select name ="artist">
+												<option value="Deadmau5">Deadmau5</option>
+												<option value="Childish_Gambino">Childish Gambino</option>
+												<option value="The_Police">The Police</option>
+												<option value="Rachmaninov">Rachmaninov</option>
+												<option value="A_Perfect_Circle">A Perfect Circle</option>
+										</select>
+										<br>
+										<label for="album">Album</label>
+										<select name ="album">
+												<option value="4x4=12">4x4=12</option>
+												<option value="Because_the_Internet">Because the Internet</option>
+												<option value="Synchronicity">Synchronicity</option>
+												<option value="Piano_Concerto_#2">Piano Concerto #2</option>
+												<option value="Thirteenth_Step">Thirteenth Step</option>
+										</select>
+										<br>
+										<label for="genre">Genre</label>
+										<div class="checkboxcontainer">
+												<div class="checkboxcolumn">
+														<input type="checkbox" id="cbox1" value="first_checkbox">Classical<br>
+														<input type="checkbox" id="cbox1" value="first_checkbox">Hip-Hop<br>
+														<input type="checkbox" id="cbox1" value="first_checkbox">Rock
+												</div>
+												<div class="checkboxcolumn">
+														<input type="checkbox" id="cbox1" value="first_checkbox">Electronic<br>
+														<input type="checkbox" id="cbox1" value="first_checkbox">Metal<br>
+														<input type="checkbox" id="cbox1" value="first_checkbox">Pop
+												</div>
+										</div>
+										<div class="submitbuttondiv">
+												<input type="submit" class="submitbutton">
+										</div>
+								</nav>
+						</nav>
+						<div id="songdisplaydiv">
+						</div>
+				</section>
+				<section id="add-section" class="hidden">
+						<div class="addSectionContainer">
+								<input type="text" placeholder="Song" id="addSongField"><br>
+								<input type="text" placeholder="Artist" id="addArtistField"><br>
+								<input type="text" placeholder="Album" id="addAlbumField"><br>
+								<div class="submitbuttondiv">
+										<button name="addSong" id="addSongButton">Add Song</button>
+								</div>
+						</div>
+				</section>
 		</div> -->
-		<script src="./lib/bower_components/jquery/dist/jquery.js"></script>
-		<script src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="./lib/bower_components/angular/angular.js"></script>
-		<script src="./javascripts/main.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+		<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="./lib/bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="./lib/bower_components/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="./javascripts/app.js"></script>
+		<script type="text/javascript" src="./javascripts/AppConstants.js"></script>
+		<script type="text/javascript" src="./javascripts/AppConfig.js"></script>
+		<script type="text/javascript" src="./javascripts/factories/SongFactory.js"></script>
+		<script type="text/javascript" src="./javascripts/controllers/NavCtrl.js"></script>
+		<script type="text/javascript" src="./javascripts/controllers/SongDisplayCtrl.js"></script>
+		<script type="text/javascript" src="./javascripts/controllers/NewSongCtrl.js"></script>
+		<script type="text/javascript" src="./javascripts/controllers/EditSongCtrl.js"></script>
 	</body>
 </html>
-
-
-
-
-
-
