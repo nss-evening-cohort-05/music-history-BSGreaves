@@ -17,8 +17,8 @@ This project was a way to test my front-end skills, learn all the flavors of web
 
 Technologies
 ------------
-V1: Vanilla JS, HTML/CSS, JSON
-V2: AngularJS, Firebase, Grunt/SASS
+ 1. V1: Vanilla JS, HTML/CSS, JSON
+ 2. V2: AngularJS, Firebase, Grunt/SASS
 
 Features
 ------------
