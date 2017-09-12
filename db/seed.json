@@ -1,0 +1,34 @@
+{
+	"songs": {
+		"song0" : {
+			"title": "Bonfire",
+			"artist": "Childish Gambino",
+			"album": "Camp"
+			},
+		"song1" : {
+			"title": "Body",
+			"artist": "Syd",
+			"album": "Fin"
+			},
+		"song2": {
+			"title": "Let It Happen",
+			"artist": "Tame Impala",
+			"album": "Currents"
+		}, 
+		"song3": {
+			"title": "Sofi Needs a Ladder",
+			"artist": "Deadmau5",
+			"album": "4x4=12"
+		},
+		"song4": {
+			"title": "The Package",
+			"artist": "A Pefect Circle",
+			"album": "Thirteenth Step"
+		},
+		"song5": {
+			"title": "Another Brick in the Wall",
+			"artist": "Pink Floyd",
+			"album": "The Wall"
+		}
+	}
+}
