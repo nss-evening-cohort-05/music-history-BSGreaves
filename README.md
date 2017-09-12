@@ -23,6 +23,7 @@ V2: AngularJS, Firebase, Grunt/SASS
 Features
 ------------
 In V2, users can create, read, update, and delete songs.
+You can also filter songs by using the search bar.
 
 Checking it out
 ---------------------------------
